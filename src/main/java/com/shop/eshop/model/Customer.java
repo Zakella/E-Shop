@@ -1,5 +1,8 @@
 package com.shop.eshop.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Customer {
 
     private final Long id;
@@ -15,6 +18,28 @@ public class Customer {
         this.lastName = lastName;
         this.phone = phone;
         this.email = email;
+    }
+
+    @JsonIgnore
+    public Long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    @JsonProperty("e-mail")
+    public String getEmail() {
+        return email;
     }
 
     @Override

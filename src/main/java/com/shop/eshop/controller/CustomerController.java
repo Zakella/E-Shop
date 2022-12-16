@@ -19,4 +19,12 @@ public class CustomerController {
     Customer getCustomer (){
         return this.customerService.getCustomer();
     }
+
+//    @GetMapping("/client")
+//    Customer getCustomer (){
+////        return "!";
+//        return new Customer(1L, "Zapolschi", "Veaceslav", "079244444", "zapolski.slava@gmail.com");
+//    }
+//
+
 }
