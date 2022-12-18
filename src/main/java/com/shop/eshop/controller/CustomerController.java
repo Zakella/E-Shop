@@ -3,9 +3,11 @@ package com.shop.eshop.controller;
 import com.shop.eshop.model.Customer;
 import com.shop.eshop.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
+@RequestMapping(path = "api/v1/customers")
 @RestController
 public class CustomerController {
     private final CustomerService customerService;
@@ -15,16 +17,31 @@ public class CustomerController {
         this.customerService = customerService;
     }
 
-    @GetMapping("/client")
-    Customer getCustomer (){
-        return this.customerService.getCustomer();
+    @GetMapping()
+    List<Customer> getCustomers (){
+        return this.customerService.getCustomers();
     }
 
-//    @GetMapping("/client")
-//    Customer getCustomer (){
-////        return "!";
-//        return new Customer(1L, "Zapolschi", "Veaceslav", "079244444", "zapolski.slava@gmail.com");
-//    }
-//
+    @GetMapping(path = "{id}")
+    Customer getCustomer (@PathVariable ("id") Long id){
+        return this.customerService.getCustomer(id);
+    }
+
+    @PostMapping()
+    public void createCustomer(@RequestBody Customer customer) {
+        System.out.println("Post customer");
+    }
+
+    @PutMapping()
+    public void updateCustomer(@RequestBody Customer customer) {
+        System.out.println("Updating customer");
+    }
+
+    @DeleteMapping(path = "{id}")
+    public void deleteCustomer(@PathVariable("id") Long id) {
+        System.out.println("Deleting customer width" + id);
+    }
+
+
 
 }

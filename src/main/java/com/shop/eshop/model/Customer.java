@@ -10,14 +10,17 @@ public class Customer {
     private final String lastName;
     private final String phone;
     private final String email;
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private final String password;
 
 
-    public Customer(Long id, String name, String lastName, String phone, String email) {
+    public Customer(Long id, String name, String lastName, String phone, String email, String password) {
         this.id = id;
         this.name = name;
         this.lastName = lastName;
         this.phone = phone;
         this.email = email;
+        this.password = password;
     }
 
     @JsonIgnore
