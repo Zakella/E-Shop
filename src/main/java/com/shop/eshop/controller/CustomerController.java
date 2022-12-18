@@ -5,6 +5,7 @@ import com.shop.eshop.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RequestMapping(path = "api/v1/customers")
@@ -28,12 +29,12 @@ public class CustomerController {
     }
 
     @PostMapping()
-    public void createCustomer(@RequestBody Customer customer) {
+    public void createCustomer(@Valid @RequestBody List <Customer> cList) {
         System.out.println("Post customer");
     }
 
     @PutMapping()
-    public void updateCustomer(@RequestBody Customer customer) {
+    public void updateCustomer(@Valid @RequestBody Customer customer) {
         System.out.println("Updating customer");
     }
 
