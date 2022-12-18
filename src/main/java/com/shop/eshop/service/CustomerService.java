@@ -1,5 +1,6 @@
 package com.shop.eshop.service;
 
+import com.shop.eshop.exception.NotFoundException;
 import com.shop.eshop.model.Customer;
 import org.springframework.stereotype.Service;
 
@@ -21,7 +22,7 @@ public class CustomerService {
                 .stream()
                 .filter(customer -> customer.getId().equals(id))
                 .findFirst()
-                .orElseThrow(()->new IllegalStateException("Customer not found"));
+                .orElseThrow(()->new NotFoundException("Customer width id " + id + " not found"));
 
     }
 
