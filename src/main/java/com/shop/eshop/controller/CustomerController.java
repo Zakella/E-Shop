@@ -1,5 +1,6 @@
 package com.shop.eshop.controller;
 
+import com.shop.eshop.exception.ApiRequestException;
 import com.shop.eshop.model.Customer;
 import com.shop.eshop.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,17 +20,25 @@ public class CustomerController {
     }
 
     @GetMapping()
-    List<Customer> getCustomers (){
+    List<Customer> getCustomers() {
         return this.customerService.getCustomers();
     }
 
     @GetMapping(path = "{id}")
-    Customer getCustomer (@PathVariable ("id") Long id){
+    Customer getCustomer(@PathVariable("id") Long id) {
         return this.customerService.getCustomer(id);
     }
 
+    @GetMapping(path = "{id}/exception")
+    Customer getCustomerException(@PathVariable("id") Long id) {
+        throw new ApiRequestException(
+                "ApiRequestException for customer  " + id
+        );
+    }
+
+
     @PostMapping()
-    public void createCustomer(@Valid @RequestBody List <Customer> cList) {
+    public void createCustomer(@Valid @RequestBody List<Customer> cList) {
         System.out.println("Post customer");
     }
 
@@ -42,7 +51,6 @@ public class CustomerController {
     public void deleteCustomer(@PathVariable("id") Long id) {
         System.out.println("Deleting customer width" + id);
     }
-
 
 
 }
