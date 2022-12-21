@@ -21,7 +21,7 @@ public class CustomerController {
 
     @GetMapping()
     List<Customer> getCustomers() {
-        return this.customerService.getCustomers();
+        return this.customerService.findAll();
     }
 
     @GetMapping(path = "{id}")

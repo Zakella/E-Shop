@@ -3,33 +3,39 @@ package com.shop.eshop.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import javax.persistence.*;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
+@Entity
+@Table
 public class Customer {
 
-    private final Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     @NotBlank//запрещены пустые значения
-    private final String name;
-    private final String lastName;
+    private  String name;
+    private  String lastName;
     @Digits(integer = 8, fraction = 0)
-    private final String phone;
+    private  String phone;
     @Email(regexp = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$", message = "email is not valid!")//валидация на почту
     @NotBlank
-    private final String email;
+    private  String email;
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    private final String password;
+    private  String password;
 
 
-    public Customer(Long id, String name, String lastName, String phone, String email, String password) {
-        this.id = id;
+    public Customer(String name, String lastName, String phone, String email, String password) {
         this.name = name;
         this.lastName = lastName;
         this.phone = phone;
         this.email = email;
         this.password = password;
     }
+
+    public Customer() {}
 
     @JsonIgnore
     public Long getId() {
