@@ -3,10 +3,10 @@ package com.shop.eshop.jsonplaceholder;
 public class Post {
     private final Integer userID;
     private final Integer id;
-    private final Integer title;
-    private final Integer body;
+    private final String title;
+    private final String body;
 
-    public Post(Integer userID, Integer id, Integer title, Integer body) {
+    public Post(Integer userID, Integer id, String title, String body) {
         this.userID = userID;
         this.id = id;
         this.title = title;
@@ -21,11 +21,11 @@ public class Post {
         return id;
     }
 
-    public Integer getTitle() {
+    public String getTitle() {
         return title;
     }
 
-    public Integer getBody() {
+    public String getBody() {
         return body;
     }
 
