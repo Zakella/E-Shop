@@ -18,7 +18,7 @@ public class Customer {
     @NotBlank//запрещены пустые значения
     private  String name;
     private  String lastName;
-    @Digits(integer = 8, fraction = 0)
+//    @Digits(integer = 8, fraction = 0)
     private  String phone;
     @Email(regexp = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$", message = "email is not valid!")//валидация на почту
     @NotBlank
