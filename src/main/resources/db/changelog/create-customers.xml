@@ -16,15 +16,5 @@
         </sql>
     </changeSet>
 
-    <changeSet id="2" author="Zakella">
-        <sql>
-            ALTER TABLE customers ADD COLUMN test VARCHAR (20)
-        </sql>
-    </changeSet>
 
-    <changeSet id="3" author="Zakella">
-        <sql>
-            ALTER TABLE customers DROP COLUMN test;
-        </sql>
-    </changeSet>
 </databaseChangeLog>

@@ -1,7 +1,12 @@
 databaseChangeLog:
   - include:
-      file: db/changelog/customers-chema.xml
-#  - include:
-#      file: db/changelog/insert-data-authors.xml
-#  - include:
-#      file: db/changelog/insert-data-books.xml
+      file: db/changelog/create-customers.xml
+  - include:
+      file: db/changelog/create-orders.xml
+  - include:
+      file: db/changelog/create-cookies.xml
+  - include:
+      file: db/changelog/create-session.xml
+  - include:
+      file: db/changelog/create-roles.xml
+
