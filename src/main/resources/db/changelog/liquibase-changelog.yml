@@ -1,0 +1,7 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/customers-chema.xml
+#  - include:
+#      file: db/changelog/insert-data-authors.xml
+#  - include:
+#      file: db/changelog/insert-data-books.xml
