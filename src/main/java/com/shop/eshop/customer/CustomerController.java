@@ -1,8 +1,6 @@
-package com.shop.eshop.controller;
+package com.shop.eshop.customer;
 
 import com.shop.eshop.exception.ApiRequestException;
-import com.shop.eshop.model.Customer;
-import com.shop.eshop.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

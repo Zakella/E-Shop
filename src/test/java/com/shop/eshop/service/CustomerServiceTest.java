@@ -1,7 +1,8 @@
 package com.shop.eshop.service;
 
-import com.shop.eshop.model.Customer;
-import com.shop.eshop.repository.CustomerRepository;
+import com.shop.eshop.customer.Customer;
+import com.shop.eshop.customer.CustomerRepository;
+import com.shop.eshop.customer.CustomerService;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

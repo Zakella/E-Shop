@@ -1,4 +1,4 @@
-package com.shop.eshop.model;
+package com.shop.eshop.customer;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;

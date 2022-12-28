@@ -1,4 +1,4 @@
-package com.shop.eshop.model;
+package com.shop.eshop.order;
 
 import javax.persistence.*;
 import java.sql.Date;

@@ -1,4 +1,4 @@
-package com.shop.eshop.service;
+package com.shop.eshop.cabinet;
 
 import org.springframework.stereotype.Service;
 

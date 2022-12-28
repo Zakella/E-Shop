@@ -1,6 +1,6 @@
-package com.shop.eshop.repository;
+package com.shop.eshop.customer;
 
-import com.shop.eshop.model.Customer;
+import com.shop.eshop.customer.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
