@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CustomerService {
@@ -39,8 +40,38 @@ public class CustomerService {
         return customerRepository.save(customer);
     }
 
+    public void saveCustomers(List <Customer> customers){
+        customerRepository.saveAll(customers);
+    }
+
     public void deleteById(Long id) {
         customerRepository.deleteById(id);
+    }
+
+    public Customer getCustomerByEmail(String email){
+
+        return customerRepository.
+                findCustomerByEmail(email)
+                .orElseThrow(()->
+                {
+                    NotFoundException notFoundException = new NotFoundException("Customer width id " + email + " not found");
+                    Logger.error("Error in customer width email {}", email);
+                    return notFoundException;
+                });
+
+    }
+
+    public Customer getCustomerByPhone(String phone){
+
+        return customerRepository.
+                findCustomerByPhone(phone)
+                .orElseThrow(()->
+                {
+                    NotFoundException notFoundException = new NotFoundException("Customer width id " + phone + " not found");
+                    Logger.error("Error in customer width phone {}", phone);
+                    return notFoundException;
+                });
+
     }
 }
 

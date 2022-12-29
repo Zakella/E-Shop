@@ -11,19 +11,24 @@ import java.util.List;
 @RestController
 public class CustomerController {
     private final CustomerService customerService;
+    private final CustomerRepository customerRepository;
 
     @Autowired
-    public CustomerController(CustomerService customerService) {
+    public CustomerController(CustomerService customerService,
+                              CustomerRepository customerRepository) {
         this.customerService = customerService;
+        this.customerRepository = customerRepository;
     }
 
     @GetMapping()
     List<Customer> getCustomers() {
+        System.out.println("get all customers");
         return this.customerService.findAll();
     }
 
     @GetMapping(path = "{id}")
     Customer getCustomer(@PathVariable("id") Long id) {
+        System.out.println("get customer");
         return this.customerService.getCustomer(id);
     }
 
@@ -34,10 +39,11 @@ public class CustomerController {
         );
     }
 
-
     @PostMapping()
-    public void createCustomer(@Valid @RequestBody List<Customer> cList) {
+    public void createCustomer(@Valid @RequestBody List<Customer> customers) {
         System.out.println("Post customer");
+        customerService.saveCustomers(customers);
+
     }
 
     @PutMapping()
@@ -50,5 +56,16 @@ public class CustomerController {
         System.out.println("Deleting customer width" + id);
     }
 
+    @GetMapping("/{phone}")
+    Customer getCustomerByPhone(@RequestParam("phone")  String phone) {
+        System.out.println("phone");
+        return this.customerService.getCustomerByPhone(phone);
+    }
 
+
+    @GetMapping("/{email}")
+    public Customer getCustomerByEmail(@PathVariable("email")  String email) {
+        System.out.println("email");
+        return this.customerService.getCustomerByEmail(email);
+    }
 }

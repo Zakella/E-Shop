@@ -59,7 +59,7 @@ class CustomerServiceTest {
 
         Customer customer = underTest.getCustomer(1L);
         assertEquals("Slava", customer.getName());
-        assertEquals("Zapolschi", customer.getLastName());
+        assertEquals("Zapolschi", customer.getLastname());
         assertEquals("79294106", customer.getPhone());
         assertEquals("zapolski@gmail.com", customer.getEmail());
 
