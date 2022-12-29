@@ -56,16 +56,17 @@ public class CustomerController {
         System.out.println("Deleting customer width" + id);
     }
 
-    @GetMapping("/{phone}")
-    Customer getCustomerByPhone(@RequestParam("phone")  String phone) {
+    @GetMapping()
+    Customer getCustomerByPhone(@RequestParam("phone")  String phone,
+                                @RequestParam("email") String email) {
         System.out.println("phone");
         return this.customerService.getCustomerByPhone(phone);
     }
 
 
-    @GetMapping("/{email}")
-    public Customer getCustomerByEmail(@PathVariable("email")  String email) {
-        System.out.println("email");
-        return this.customerService.getCustomerByEmail(email);
-    }
+//    @GetMapping("/{email}")
+//    public Customer getCustomerByEmail(@PathVariable("email")  String email) {
+//        System.out.println("email");
+//        return this.customerService.getCustomerByEmail(email);
+//    }
 }
