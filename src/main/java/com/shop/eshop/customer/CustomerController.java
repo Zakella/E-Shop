@@ -53,14 +53,27 @@ public class CustomerController {
 
     @DeleteMapping(path = "{id}")
     public void deleteCustomer(@PathVariable("id") Long id) {
+        customerService.deleteById(id);
         System.out.println("Deleting customer width" + id);
     }
 
-    @GetMapping()
-    Customer getCustomerByPhone(@RequestParam("phone")  String phone,
+    @GetMapping(path = "/get")
+    Customer getCustomerByPhone(@RequestParam("phone") String phone,
                                 @RequestParam("email") String email) {
         System.out.println("phone");
         return this.customerService.getCustomerByPhone(phone);
+    }
+
+    @GetMapping(path = "generateCustomers")
+    public void generateCustomers() {
+        this.customerService.generateCustomers();
+
+    }
+
+    @GetMapping(path = "pageCustomers")
+    public void pageCustomers() {
+        this.customerService.pageCustomers();
+
     }
 
 
