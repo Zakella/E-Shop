@@ -7,15 +7,15 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
 @Entity (name = "customers")
-@Table
+@Table(name = "customers")
 public class Customer {
 
     @Id
-    @SequenceGenerator(name = "sequence_customer",
-            sequenceName = "sequence_customer",
-            allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequence_customer")
-
+//    @SequenceGenerator(name = "sequence_customer",
+//            sequenceName = "sequence_customer",
+//            allocationSize = 1)
+//    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequence_customer")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name ="id", updatable = false)
     private Long id;
     @NotBlank//запрещены пустые значения json

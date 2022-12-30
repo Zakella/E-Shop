@@ -17,17 +17,21 @@ import javax.persistence.*;
 public class Basket {
 
     @Id
-    @SequenceGenerator(name = "sequence_basket",
-            sequenceName = "sequence_basket",
-            allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequence_basket")
+//    @SequenceGenerator(name = "sequence_basket",
+//            sequenceName = "sequence_basket",
+//            allocationSize = 1)
+   // @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequence_basket")
 
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name ="id", updatable = false)
     private Long id;
 
-    @OneToOne()
-    @JoinColumn(name = "id")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "customer_id", referencedColumnName = "id")
     private Customer customer;
+
+    public Basket() {
+    }
 
 //    private Product product;
 

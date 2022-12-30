@@ -24,7 +24,7 @@ public class FakeCustomers {
         Faker faker = new Faker();
 
         List<Customer> customerList = new ArrayList<>();
-        for (int i = 0; i < 50000; i++) {
+        for (int i = 0; i < 5; i++) {
             String name = faker.name().firstName();
             String lastname = faker.name().lastName();
             String email = String.format("%s.%s@gmail.com", name, lastname);

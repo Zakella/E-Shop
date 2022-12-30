@@ -76,10 +76,4 @@ public class CustomerController {
 
     }
 
-
-//    @GetMapping("/{email}")
-//    public Customer getCustomerByEmail(@PathVariable("email")  String email) {
-//        System.out.println("email");
-//        return this.customerService.getCustomerByEmail(email);
-//    }
 }

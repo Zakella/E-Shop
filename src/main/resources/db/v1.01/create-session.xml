@@ -5,7 +5,7 @@
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
     <changeSet id="1" author="Zakella">
         <sql>
-            CREATE TABLE session
+            CREATE TABLE IF NOT EXISTS session
             (
                 id          INTEGER PRIMARY KEY,
                 customer_id INTEGER NOT NULL
