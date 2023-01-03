@@ -12,7 +12,7 @@ import javax.persistence.*;
 //        @UniqueConstraint(name = "basket_customer_unique", columnNames = {customerID})
 //        })
 
-@Table (name = "basket")
+@Table(name = "basket")
 
 public class Basket {
 
@@ -20,22 +20,26 @@ public class Basket {
 //    @SequenceGenerator(name = "sequence_basket",
 //            sequenceName = "sequence_basket",
 //            allocationSize = 1)
-   // @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequence_basket")
+    // @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequence_basket")
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name ="id", updatable = false)
+    @Column(name = "id", updatable = false)
     private Long id;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "customer_id", referencedColumnName = "id")
     private Customer customer;
 
-    public Basket() {
+    public Basket(Customer customer) {
+        this.customer = customer;
     }
 
-//    private Product product;
+    public Basket() {}
+
+    public Long getId() {
+        return id;
+    }
 
 
-//    private
 
 }
