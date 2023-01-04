@@ -5,18 +5,13 @@
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
     <changeSet id="1" author="Zakella">
         <sql>
-            CREATE TABLE IF NOT EXISTS basket (
+            CREATE TABLE IF NOT EXISTS products (
                                     id INTEGER PRIMARY KEY,
-                                    customer_id INTEGER NOT NULL,
-                                    FOREIGN KEY (customer_id) REFERENCES customers (id)
+                                    basket_id INTEGER NOT NULL,
+                                    name CHAR (150) NOT NULL,
+                                    description VARCHAR(255) ,
+                                    FOREIGN KEY (basket_id) REFERENCES basket (id)
             );
-        </sql>
-    </changeSet>
-
-    <changeSet id="2" author="Zakella">
-        <sql>
-            ALTER TABLE basket
-                ADD product_id INTEGER
         </sql>
     </changeSet>
 

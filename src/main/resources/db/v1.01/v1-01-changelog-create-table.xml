@@ -11,6 +11,7 @@
     <include file="/db/v1.01/create-roles.xml"></include>
     <include file="/db/v1.01/create-session.xml"></include>
     <include file="/db/v1.01/create-basket.xml"></include>
+    <include file="/db/v1.01/create-products.xml"></include>
 
 
 </databaseChangeLog>

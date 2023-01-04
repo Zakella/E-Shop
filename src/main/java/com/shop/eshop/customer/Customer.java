@@ -2,6 +2,7 @@ package com.shop.eshop.customer;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.shop.eshop.basket.Basket;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -32,6 +33,10 @@ public class Customer {
     private  String email;
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private  String password;
+
+    @OneToOne(mappedBy = "customer",
+    orphanRemoval = true)//удаляет корзину если удален клиент
+    private Basket basket;
 
 
     public Customer(String name, String lastName, String phone, String email, String password) {
