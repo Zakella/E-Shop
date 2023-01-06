@@ -11,6 +11,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.text.Format;
 import java.util.List;
 import java.util.Optional;
 
@@ -97,7 +98,17 @@ public class CustomerService {
     }
 
     public void registerNewCustomer(CustomerRegistrationRequest customerRegistrationRequest) {
+        String phone = customerRegistrationRequest.getCustomer().getPhone();
+        Optional <Customer> optionalCustomer = customerRepository.findCustomerByPhone(phone);
+        if (optionalCustomer.isPresent()){
+            Customer customer = optionalCustomer.get();
+            if (customer.getName().equals(customerRegistrationRequest.getCustomer().getName())){
+                return;
+            }
+            throw new IllegalStateException(String.format("Phone number %s is taken", phone));
 
+        }
+        customerRepository.save(customerRegistrationRequest.getCustomer());
 
     }
 

@@ -19,22 +19,28 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
-
+@Deprecated
 class CustomerServiceTest {
 
-    private CustomerService underTest;
+    @Autowired
+     private CustomerRepository underTest;
+//    private CustomerService underTest;
     @Test
     void itShouldSaveCustomer() {
         //Given
         Customer customer = new Customer("Slava", "Zapolschi", "79294106",
                "zapolski@gmail.com", "123");
         //When
-       underTest.saveCustomer(customer);
+       underTest.save(customer);
 
         //Then
 
-        Optional<Customer> optionalCustomer = underTest.getCustomerByName("Slava");
-        assertThat(optionalCustomer).isPresent();
+        Optional<Customer> optionalCustomer = underTest.findByName("Slava");
+        assertThat(optionalCustomer)
+                .isPresent()
+                .hasValueSatisfying(c->{
+                    assertThat(c).isNotEqualTo(customer);
+                });
 
     }
 
