@@ -27,5 +27,5 @@ public interface CustomerRepository extends JpaRepository<Customer, Long> {
     @Query("DELETE FROM customers c WHERE c.id = ?1")
     void deleteCustomerById(Long id);
 
-
+    Optional <Customer> findByName(String name);
 }

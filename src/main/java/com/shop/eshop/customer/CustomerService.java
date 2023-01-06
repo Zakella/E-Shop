@@ -9,6 +9,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -41,8 +42,8 @@ public class CustomerService {
                 });
     }
 
-    public Customer save(Customer customer) {
-        return customerRepository.save(customer);
+    public void saveCustomer(Customer customer) {
+        customerRepository.save(customer);
     }
 
     public void saveCustomers(List<Customer> customers) {
@@ -85,14 +86,23 @@ public class CustomerService {
 
     }
 
-    public Page  pageCustomers() {//изучить потом подробнее, пагинация
+    public Page pageCustomers() {//изучить потом подробнее, пагинация
         PageRequest pageRequest = PageRequest.of(0,
                 5,
                 Sort.by("name").ascending()
         );
-        Page<Customer> page =customerRepository.findAll(pageRequest);
+        Page<Customer> page = customerRepository.findAll(pageRequest);
         return page;
 
+    }
+
+    public void registerNewCustomer(CustomerRegistrationRequest customerRegistrationRequest) {
+
+
+    }
+
+    public Optional<Customer> getCustomerByName(String name) {
+        return this.customerRepository.findByName(name);
     }
 
 }

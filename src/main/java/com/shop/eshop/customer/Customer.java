@@ -26,6 +26,8 @@ public class Customer {
     @Column(name = "lastname", nullable = false, columnDefinition = "TEXT")
     private  String lastname;
 //    @Digits(integer = 8, fraction = 0)
+
+    @NotBlank
     private  String phone;
 //    @Email(regexp = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$", message = "email is not valid!")//валидация на почту
 //    @NotBlank
@@ -39,14 +41,16 @@ public class Customer {
     private Basket basket;
 
 
-    public Customer(String name, String lastName, String phone, String email, String password) {
+    public Customer( String name, String lastName, String phone, String email, String password) {
         this.name = name;
         this.lastname = lastName;
         this.phone = phone;
         this.email = email;
         this.password = password;
 
+
     }
+
 
     public Customer() {}
 
