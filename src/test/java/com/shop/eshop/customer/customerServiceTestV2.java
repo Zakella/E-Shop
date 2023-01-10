@@ -1,5 +1,6 @@
 package com.shop.eshop.customer;
 
+import com.shop.eshop.exception.NotFoundException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
@@ -16,7 +17,7 @@ import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
 import static org.mockito.Mockito.never;
 
-class customerServiceTestV2 {
+class customerServiceTest {
 
     private CustomerService underTest;
 
@@ -100,6 +101,73 @@ class customerServiceTestV2 {
                 .hasMessageContaining(String.format("Phone number %s is taken", phone));
 
         then(customerRepository).should(never()).save(any(Customer.class));
+
+    }
+
+    @Test
+    void itShouldReturnCustomerNumber() {
+        //Given
+        String phone = "079294106";
+        Customer customer = new Customer("Slava", "Zapolschi", "079294106",
+                "zapolski@gmail.com", "123");
+
+        given(customerRepository.findCustomerByPhone(phone)).willReturn(Optional.of(customer));
+        //When
+        Customer customerByPhone = underTest.getCustomerByPhone(phone);
+        //Then
+        assertThat(phone).isEqualTo(customerByPhone.getPhone());
+
+
+    }
+
+
+    @Test
+    void itShouldThrowNotFoundExceptionWhenPhoneNotFound() {
+        //Given
+        String phone = "079294107";
+        given(customerRepository.findCustomerByPhone(phone)).willReturn(Optional.empty());
+
+        //When
+
+        //Then
+        assertThatThrownBy(() -> underTest.getCustomerByPhone(phone))
+                .isInstanceOf(NotFoundException.class)
+                .hasMessageContaining(String.format("Customer width id %s not found", phone));
+    }
+
+    @Test
+    void itShouldReturnCustomerByEmailOrTrowException() {
+        //Given
+
+        String email = "zapolski@gmail.com";
+        Customer customer = new Customer("Slava", "Zapolschi", "079294106",
+                "zapolski@gmail.com", "123");
+
+        given(customerRepository.findCustomerByEmail(email)).willReturn(Optional.of(customer));
+        //When
+
+        Optional<Customer> customerByEmail = customerRepository.findCustomerByEmail(email);
+
+        //Then
+
+        assertThat(email).isEqualTo(customerByEmail
+                .get().getEmail());
+
+
+    }
+
+    @Test
+    void itShouldThrowExceptionWhenEmailNotFound() {
+
+        String email = "zapolski@gmail.com";
+        given(customerRepository.findCustomerByEmail(email)).willReturn(Optional.empty());
+
+        //When
+
+        //Then
+        assertThatThrownBy(() -> underTest.getCustomerByEmail(email))
+                .isInstanceOf(NotFoundException.class)
+                .hasMessageContaining(String.format("Customer width id %s not found", email));
 
     }
 }
