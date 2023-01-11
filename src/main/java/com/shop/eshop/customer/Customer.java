@@ -37,6 +37,7 @@ public class Customer {
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private  String password;
 
+
     @OneToOne(mappedBy = "customer",
     orphanRemoval = true)//удаляет корзину если удален клиент
     private Basket basket;

@@ -8,7 +8,7 @@ import java.util.List;
 
 @FeignClient
         (value = "jsonplaceholder",
-                url = "https://jsonplaceholder.typicode.com/")
+                url = "https://jsonplaceholder.typicode.com")
 public interface JSONPlaceHolderClient {
     @GetMapping("posts")
     List<Post> getPosts();
