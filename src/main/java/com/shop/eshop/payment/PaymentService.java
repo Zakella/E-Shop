@@ -13,7 +13,7 @@ public class PaymentService {
 
     private final CardPayment cardPayment;
 
-    @Autowired
+
     public PaymentService(CustomerRepository customerRepository,
                           PaymentRepository paymentRepository,
                           CardPayment cardPayment) {
