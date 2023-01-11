@@ -37,7 +37,7 @@ public class CustomerService {
                 findById(id)
                 .orElseThrow(() ->
                 {
-                    NotFoundException notFoundException = new NotFoundException("Customer width id " + id + " not found");
+                    NotFoundException notFoundException = new NotFoundException("Customer width id " + id +" not found");
                     Logger.error("Error in customer width id {}", id);
                     return notFoundException;
                 });
