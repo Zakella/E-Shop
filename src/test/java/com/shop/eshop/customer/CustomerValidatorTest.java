@@ -55,6 +55,10 @@ class CustomerValidatorTest {
                 new Customer("Joe1", "2Dany1",
                         "14778787878", "joe@gmail.com", "454545"),
                 new Customer("Joe", "2Dany1",
+                        "14778787878", "joe@gmail.com", "454545"),
+                new Customer(null, "2Dany1",
+                        "14778787878", "joe@gmail.com", "454545"),
+                new Customer("Joe", null,
                         "14778787878", "joe@gmail.com", "454545")
         );
 
@@ -106,7 +110,9 @@ class CustomerValidatorTest {
                 new Customer("Joe", "Doe",
                         "14778787878", "joe@gmail.com", "454545"),
                 new Customer("Lisaaaa", "Brooo",
-                        "czz048787887", "joe@gmail.com", "454545")
+                        "czz048787887", "joe@gmail.com", "454545"),
+                new Customer("Lisaaaa", "Brooo",
+                        null, "joe@gmail.com", "454545")
         );
         //When
 
@@ -123,7 +129,10 @@ class CustomerValidatorTest {
                 new Customer("", "",
                         "", "joegmail.com", ""),
                 new Customer("", "",
-                        "", "joegmailcom", "")
+                        "", "joegmailcom", ""),
+
+                new Customer("", "",
+                        "", null, "")
         );
         //When
         //Then

@@ -22,13 +22,11 @@ public class CustomerController {
 
     @GetMapping()
     List<Customer> getCustomers() {
-        System.out.println("get all customers");
         return this.customerService.findAll();
     }
 
     @GetMapping(path = "{id}")
     Customer getCustomer(@PathVariable("id") Long id) {
-        System.out.println("get customer");
         return this.customerService.getCustomer(id);
     }
 
@@ -41,7 +39,6 @@ public class CustomerController {
 
     @PostMapping()
     public void createCustomer(@Valid @RequestBody List<Customer> customers) {
-        System.out.println("Post customer");
         customerService.saveCustomers(customers);
 
     }
@@ -54,26 +51,13 @@ public class CustomerController {
     @DeleteMapping(path = "{id}")
     public void deleteCustomer(@PathVariable("id") Long id) {
         customerService.deleteById(id);
-        System.out.println("Deleting customer width" + id);
     }
 
     @GetMapping(path = "/get")
     Customer getCustomerByPhone(@RequestParam("phone") String phone,
                                 @RequestParam("email") String email) {
-        System.out.println("phone");
         return this.customerService.getCustomerByPhone(phone);
     }
 
-    @GetMapping(path = "generateCustomers")
-    public void generateCustomers() {
-        this.customerService.generateCustomers();
-
-    }
-
-    @GetMapping(path = "pageCustomers")
-    public void pageCustomers() {
-        this.customerService.pageCustomers();
-
-    }
 
 }

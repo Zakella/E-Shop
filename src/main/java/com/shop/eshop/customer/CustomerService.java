@@ -81,23 +81,15 @@ public class CustomerService {
 
     }
 
-    public void generateCustomers() {
-        FakeCustomers fakeCustomers = new FakeCustomers(this.customerRepository);
-        fakeCustomers.generateRandomCustomers();
 
-    }
-
-    public Page pageCustomers() {//изучить потом подробнее, пагинация
-        PageRequest pageRequest = PageRequest.of(0,
-                5,
-                Sort.by("name").ascending()
-        );
-        Page<Customer> page = customerRepository.findAll(pageRequest);
-        return page;
+    public void customerValidationBeforeRegistration(CustomerValidator customerValidator,
+                                                     CustomerRegistrationRequest customerRegistrationRequest){
+        customerValidator.startValidation(customerRegistrationRequest.getCustomer());
 
     }
 
     public void registerNewCustomer(CustomerRegistrationRequest customerRegistrationRequest) {
+
         String phone = customerRegistrationRequest.getCustomer().getPhone();
         Optional <Customer> optionalCustomer = customerRepository.findCustomerByPhone(phone);
         if (optionalCustomer.isPresent()){
