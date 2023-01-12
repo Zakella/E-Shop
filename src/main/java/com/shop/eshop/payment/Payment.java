@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 import java.util.UUID;
 
 @Entity()
-@Table(name = "payments")
+//@Table(name = "payments")
 public class Payment {
 
     @Id
@@ -13,18 +13,18 @@ public class Payment {
 
     private Long paymentID;
 
-    private UUID customerId;
+    private Long customerId;
 
     private BigDecimal amount;
 
     private Currency currency;
 
-    @Column(name = "cardnumber")
+//    @Column(name = "cardnumber")
     private String source;
 
     private String description;
 
-    public Payment(Long paymentID, UUID customerId, BigDecimal amount,
+    public Payment(Long paymentID, Long customerId, BigDecimal amount,
                    Currency currency, String source, String description) {
         this.paymentID = paymentID;
         this.customerId = customerId;
@@ -45,11 +45,11 @@ public class Payment {
         this.paymentID = paymentID;
     }
 
-    public UUID getCustomerId() {
+    public Long getCustomerId() {
         return customerId;
     }
 
-    public void setCustomerId(UUID customerId) {
+    public void setCustomerId(Long customerId) {
         this.customerId = customerId;
     }
 

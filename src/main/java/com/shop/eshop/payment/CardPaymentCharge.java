@@ -1,8 +1,7 @@
 package com.shop.eshop.payment;
 
-import org.springframework.stereotype.Service;
-
 public class CardPaymentCharge {
+
     private final boolean isCardDebited;
 
     public CardPaymentCharge(boolean isCardDebited) {
