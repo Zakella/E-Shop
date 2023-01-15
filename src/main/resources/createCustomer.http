@@ -1,0 +1,14 @@
+POST localhost:8080/api/v1/customers
+Content-Type: application/json
+
+{
+  "name": "Alex",
+  "lastName": "Zapolschi",
+  "patronymic": "Eduard",
+  "gender": "Male",
+  "phone": "72345678",
+  "dateOfBirth":"29-08-1986"
+
+}
+
+
