@@ -3,7 +3,7 @@ Content-Type: application/json
 
 {
   "name": "Alex",
-  "lastName": "Zapolschi",
+  "lastName": "Zapolschi1",
   "patronymic": "Eduard",
   "gender": "Male",
   "phone": "72345678",
