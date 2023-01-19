@@ -139,4 +139,13 @@ class CustomerValidatorTest {
         customers.forEach(this::throwValidationException);
 
     }
+
+    @Test
+    void itShouldTest() {
+        //Given
+        
+        //When
+        //Then
+
+    }
 }

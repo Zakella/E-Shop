@@ -34,7 +34,7 @@ public class Customer {
 //    @NotBlank
 //    @Column(nullable = false, columnDefinition = "TEXT")
     private  String email;
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+//    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private  String password;
 
 
@@ -78,14 +78,19 @@ public class Customer {
         return email;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
     @Override
     public String toString() {
         return "Customer{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", lastName='" + lastname + '\'' +
+                ", lastname='" + lastname + '\'' +
                 ", phone='" + phone + '\'' +
                 ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
                 '}';
     }
 }

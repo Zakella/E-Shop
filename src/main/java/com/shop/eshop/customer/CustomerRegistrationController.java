@@ -1,5 +1,6 @@
 package com.shop.eshop.customer;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -8,11 +9,16 @@ import javax.validation.Valid;
 @RequestMapping(path = "api/v1/customers-registration")
 public class CustomerRegistrationController {
 
+    @Autowired
+    private final CustomerService customerService;
+
+    public CustomerRegistrationController(CustomerService customerService) {
+        this.customerService = customerService;
+    }
+
 
     @PutMapping
     public void registerNewCustomer(@Valid @RequestBody CustomerRegistrationRequest customerRegistrationRequest){
-        System.out.println(customerRegistrationRequest );
-
-
+        this.customerService.registerNewCustomer(customerRegistrationRequest);
     }
 }
