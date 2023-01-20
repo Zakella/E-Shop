@@ -5,18 +5,19 @@ import java.math.BigDecimal;
 import java.util.UUID;
 
 @Entity()
-//@Table(name = "payments")
+@Table(name = "payments")
 public class Payment {
 
     @Id
-    @GeneratedValue
-
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long paymentID;
 
+    @Column(name = "customerid")
     private Long customerId;
 
     private BigDecimal amount;
 
+    @Column(name = "currency")
     private Currency currency;
 
 //    @Column(name = "cardnumber")
