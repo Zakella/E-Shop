@@ -2,6 +2,7 @@ package com.shop.eshop.customer;
 
 import com.shop.eshop.exception.ApiRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -21,6 +22,7 @@ public class CustomerController {
     }
 
     @GetMapping()
+    @PreAuthorize("hasRole('ADMIN')")
     List<Customer> getCustomers() {
         return this.customerService.findAll();
     }

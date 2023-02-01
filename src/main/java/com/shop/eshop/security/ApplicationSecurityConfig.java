@@ -2,6 +2,8 @@ package com.shop.eshop.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.http.HttpMethod;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.userdetails.User;
@@ -11,9 +13,12 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
+import static com.shop.eshop.security.ApplicationUserRole.ADMIN;
+import static com.shop.eshop.security.ApplicationUserRole.USER;
 import static org.springframework.security.config.Customizer.withDefaults;
 
 @EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class ApplicationSecurityConfig  {
 
     private final PasswordEncoder passwordEncoder;
@@ -27,8 +32,8 @@ public class ApplicationSecurityConfig  {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests((authz) -> authz
-                        .antMatchers("/","index","/css/*","/js/*")
-                        .permitAll()
+                        .antMatchers("/","index","/css/*","/js/*").permitAll()
+//                        .antMatchers("/api/**").hasRole(ADMIN.name())
                         .anyRequest()
                         .authenticated()
                 )
@@ -41,13 +46,13 @@ public class ApplicationSecurityConfig  {
         UserDetails slavaUser = User.builder()
                 .username("Slava")
                 .password(passwordEncoder.encode("123"))
-                .roles("ADMIN")
+                .roles(ADMIN.name())
                 .build();
 
         UserDetails mariaUser = User.builder()
-                .username("Slava")
+                .username("Maria")
                 .password(passwordEncoder.encode("123"))
-                .roles("USER")
+                .roles(USER.name())
                 .build();
 
         return new InMemoryUserDetailsManager(
