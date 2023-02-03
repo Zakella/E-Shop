@@ -12,6 +12,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
+
+import java.util.concurrent.TimeUnit;
 
 import static com.shop.eshop.security.ApplicationUserRole.ADMIN;
 import static com.shop.eshop.security.ApplicationUserRole.USER;
@@ -31,13 +34,23 @@ public class ApplicationSecurityConfig  {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
+                //.csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
+//                .and()
+                .csrf().disable()
                 .authorizeHttpRequests((authz) -> authz
                         .antMatchers("/","index","/css/*","/js/*").permitAll()
 //                        .antMatchers("/api/**").hasRole(ADMIN.name())
                         .anyRequest()
                         .authenticated()
                 )
-                .httpBasic(withDefaults());
+                .httpBasic(withDefaults())
+                 .formLogin()
+                 .loginPage("/login").permitAll()
+                .defaultSuccessUrl("/cabinet", true)
+                .and()
+                .rememberMe().tokenValiditySeconds((int) TimeUnit.DAYS.toSeconds(21))
+                .key("somethingverysecured");
+
         return http.build();
     }
 
