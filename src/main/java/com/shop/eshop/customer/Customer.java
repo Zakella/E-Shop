@@ -4,10 +4,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.shop.eshop.basket.Basket;
 
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
-@Entity (name = "customers")
+@Entity(name = "customers")
 @Table(name = "customers")
 public class Customer {
 

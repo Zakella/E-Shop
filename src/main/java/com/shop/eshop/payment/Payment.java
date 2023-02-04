@@ -1,8 +1,6 @@
 package com.shop.eshop.payment;
-
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.util.UUID;
 
 @Entity()
 @Table(name = "payments")
@@ -20,7 +18,7 @@ public class Payment {
     @Column(name = "currency")
     private Currency currency;
 
-//    @Column(name = "cardnumber")
+    //    @Column(name = "cardnumber")
     private String source;
 
     private String description;

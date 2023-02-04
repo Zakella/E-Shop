@@ -4,6 +4,7 @@ import com.shop.eshop.basket.Basket;
 
 import javax.persistence.*;
 
+
 @Entity(name = "Product")
 @Table(name = "products")
 public class Product {
