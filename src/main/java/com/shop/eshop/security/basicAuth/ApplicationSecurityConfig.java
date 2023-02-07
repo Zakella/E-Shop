@@ -1,34 +1,20 @@
-package com.shop.eshop.security;
+package com.shop.eshop.security.basicAuth;
 
-import com.shop.eshop.auth.ApplicationUserDao;
-import com.shop.eshop.auth.ApplicationUserService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.shop.eshop.security.user.auth.ApplicationUserService;
 import org.springframework.context.annotation.Bean;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
-import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
-import org.springframework.security.web.util.matcher.AndRequestMatcher;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import java.util.concurrent.TimeUnit;
 
-import static com.shop.eshop.security.ApplicationUserRole.ADMIN;
-import static com.shop.eshop.security.ApplicationUserRole.USER;
 import static org.springframework.security.config.Customizer.withDefaults;
-
-@EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true)
+@Deprecated
+//@EnableWebSecurity
+//@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class ApplicationSecurityConfig  {
 
     private final PasswordEncoder passwordEncoder;

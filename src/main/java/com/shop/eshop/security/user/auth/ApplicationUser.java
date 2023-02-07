@@ -1,4 +1,4 @@
-package com.shop.eshop.auth;
+package com.shop.eshop.security.user.auth;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

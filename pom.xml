@@ -181,6 +181,25 @@
             <version>4.2.2</version>
         </dependency>
 
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-api</artifactId>
+            <version>0.11.5</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-impl</artifactId>
+            <version>0.11.5</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-jackson</artifactId>
+            <version>0.11.5</version>
+        </dependency>
+
         <!-- https://mvnrepository.com/artifact/jakarta.persistence/jakarta.persistence-api -->
 <!--        <dependency>-->
 <!--            <groupId>jakarta.persistence</groupId>-->

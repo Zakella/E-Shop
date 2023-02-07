@@ -1,7 +1,6 @@
-package com.shop.eshop.auth;
+package com.shop.eshop.security.user.auth;
 
 import com.google.common.collect.Lists;
-import com.shop.eshop.security.ApplicationUserRole;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Repository;
@@ -9,8 +8,8 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Optional;
 
-import static com.shop.eshop.security.ApplicationUserRole.ADMIN;
-import static com.shop.eshop.security.ApplicationUserRole.USER;
+import static com.shop.eshop.security.basicAuth.ApplicationUserRole.ADMIN;
+import static com.shop.eshop.security.basicAuth.ApplicationUserRole.USER;
 
 @Repository("fake")
 public class FakeApplicationDaoUserService implements ApplicationUserDao{

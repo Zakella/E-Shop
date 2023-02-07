@@ -15,5 +15,13 @@
         </sql>
     </changeSet>
 
+    <changeSet id="2" author="Zakella">
+        <sql>
+            ALTER TABLE users
+                ADD role  VARCHAR(255)
+        </sql>
+    </changeSet>
+
+
 
 </databaseChangeLog>

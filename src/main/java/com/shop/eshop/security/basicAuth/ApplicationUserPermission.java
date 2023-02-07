@@ -1,4 +1,4 @@
-package com.shop.eshop.security;
+package com.shop.eshop.security.basicAuth;
 
 public enum ApplicationUserPermission {
 
