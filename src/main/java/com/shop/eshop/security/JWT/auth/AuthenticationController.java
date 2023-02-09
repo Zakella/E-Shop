@@ -12,17 +12,17 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class AuthenticationController {
 
-  private final AuthenticationService service;
+  private final com.shop.eshop.security.JWT.auth.AuthenticationService service;
 
   @PostMapping("/register")
-  public ResponseEntity<AuthenticationResponse> register(
-      @RequestBody RegisterRequest request
+  public ResponseEntity<com.shop.eshop.security.JWT.auth.AuthenticationResponse> register(
+      @RequestBody com.shop.eshop.security.JWT.auth.RegisterRequest request
   ) {
     return ResponseEntity.ok(service.register(request));
   }
   @PostMapping("/authenticate")
-  public ResponseEntity<AuthenticationResponse> authenticate(
-      @RequestBody AuthenticationRequest request
+  public ResponseEntity<com.shop.eshop.security.JWT.auth.AuthenticationResponse> authenticate(
+      @RequestBody com.shop.eshop.security.JWT.auth.AuthenticationRequest request
   ) {
     return ResponseEntity.ok(service.authenticate(request));
   }
