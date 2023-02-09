@@ -1,4 +1,4 @@
-package com.shop.eshop.security.JWT.config;
+package com.shop.eshop.security.jwt.config;
 
 import com.shop.eshop.security.user.UserRepository;
 import lombok.RequiredArgsConstructor;

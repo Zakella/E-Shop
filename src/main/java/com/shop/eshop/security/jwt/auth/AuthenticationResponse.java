@@ -1,4 +1,4 @@
-package com.shop.eshop.security.JWT.auth;
+package com.shop.eshop.security.jwt.auth;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -1,4 +1,4 @@
-package com.shop.eshop.security.JWT.config;
+package com.shop.eshop.security.jwt.config;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -11,7 +11,7 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
-@EnableWebSecurity()
+@EnableWebSecurity
 @RequiredArgsConstructor
 public class SecurityConfiguration {
 

@@ -1,6 +1,6 @@
-package com.shop.eshop.security.JWT.auth;
+package com.shop.eshop.security.jwt.auth;
 
-import com.shop.eshop.security.JWT.config.JwtService;
+import com.shop.eshop.security.jwt.config.JwtService;
 import com.shop.eshop.security.user.Role;
 import com.shop.eshop.security.user.User;
 import com.shop.eshop.security.user.UserRepository;

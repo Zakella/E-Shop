@@ -1,4 +1,4 @@
-package com.shop.eshop.security.JWT.config;
+package com.shop.eshop.security.jwt.config;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
