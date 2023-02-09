@@ -7,14 +7,12 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.web.SecurityFilterChain;
 
-import java.util.concurrent.TimeUnit;
-
 import static org.springframework.security.config.Customizer.withDefaults;
 
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity
-public class BasicAuthConfig {
+public class BasicAuthenticationConfig {
 
 //    public SecurityConfig(JpaUserDetailsService myUserDetailsService) {
 //        this.myUserDetailsService = myUserDetailsService;
